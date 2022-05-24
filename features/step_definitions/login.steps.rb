@@ -1,7 +1,6 @@
 Quando('eu faço login com {string} e {string}') do |email, password|
-    @login = LoginPage.new
-    @login.go
-    @login.with(email,password)
+    @login_page.go
+    @login_page.with(email,password)
   end
   
   Então('devo ser autenticado') do
@@ -19,6 +18,5 @@ Quando('eu faço login com {string} e {string}') do |email, password|
   end
   
   Então('devo ver a mensagem de alerta {string}') do |expect_message|
-    @login = LoginPage.new
     expect(@login.alert).to eql expect_message
   end

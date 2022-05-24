@@ -16,9 +16,41 @@ spider:
   cover: "spider.jpg"
 jocker:
   title: "Coringa"
-  status: "Em breve "
+  status: "Em breve"
   year: "2019"
   release_date: "20/12/2019"
   cast: ["Joaquin Phoenix"]
   overview: "O comediante falido Arthur Fleck encontra violentos bandidos pelas ruas de Gotham City."
   cover: "coringa.jpg"
+no_title:
+  title: ""
+  status: "Disponível"
+  year: "2019"
+  release_date: "20/12/2019"
+  cast: []
+  overview: ""
+  cover: ""
+no_status:
+  title: "A Bruxa"
+  status: ""
+  year: "2017"
+  release_date: "20/12/2017"
+  cast: []
+  overview: ""
+  cover: ""
+no_year:
+  title: "Midsommar"
+  status: "Em breve"
+  year: ""
+  release_date: "20/12/2019"
+  cast: []
+  overview: ""
+  cover: ""
+no_date:
+  title: "Hellbender"
+  status: "Disponível"
+  year: "2022"
+  release_date: ""
+  cast: []
+  overview: ""
+  cover: ""

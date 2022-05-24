@@ -1,5 +1,5 @@
 #language:pt
-
+@login
 Funcionalidade: Cadastro de filmes
     Para que eu possa disponibilizar novos títulos no catálogo
     Sendo um gestor de catálogo
@@ -20,21 +20,23 @@ Funcionalidade: Cadastro de filmes
             | "spider"   |
             | "jocker"   |
 
-    Cenário: Sem nome
-        Quando eu tento cadastrar um filme sem o nome
-        Então devo ver a notificação "Oops - Filme sem título. Pode isso Arnaldo?  "
-    
-    Cenário: Sem status
-        Quando eu tento cadastrar um filme sem o status
-        Então devo ver a notificação "Oops - O status deve ser informado."
-    
-    Cenário: Ano de lançamento não informado
-        Quando eu tento cadastrar um filme sem o ano de lançamento
-        Então devo ver a notificação "Oops - Faltou o ano de lançamento."
+    @attempt_movie
+    Esquema do Cenário: Campos obrigatórios
+        O gestor de catálogo tenta cadastrar um novo filme
+        mas esquece de preencher um dos campos obrigatorios
+        em seguida o sistema exibe uma notificação ara o usuário
 
-    Cenário: Data de estréia não informada
-        Quando eu tento cadastrar um filme sem a data de estréia
-        Então devo ver a notificação "Oops - Quase lá, só falta a data de estréia."
+        Dado que <codigo> é um novo filme
+        Quando eu faço o cadastrado deste filme
+        Então devo ver a notificação <texto>
+
+         Exemplos:
+            | codigo      |  texto                                              |  
+            | "no_title"  | "Oops - Filme sem titulo. Pode isso Arnaldo?"       |
+            | "no_status" | "Oops - O status deve ser informado!"               |
+            | "no_year"   | "Oops - Faltou o ano de lançamento também!"         |
+            | "no_date"   | "Oops - Quase lá, só falta a data de estréia!"      |
+    
     
     Cenário: Duplicado
         Quando "Deadpool 2" já foi cadastrado
