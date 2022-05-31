@@ -5,7 +5,7 @@ end
 
 Então("devo ser autenticado") do
   expect(get_token.length).to be 147
-  sleep 2
+  sleep 5
 end
 
 Então("devo ver {string} na área logada") do |expect_name|

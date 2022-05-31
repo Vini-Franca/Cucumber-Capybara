@@ -1,0 +1,9 @@
+---
+default: -p firefox -p json -p progress
+dev: ENV_TYPE=dev
+dev_toolbox: ENV_TYPE=dev_toolbox
+hmg: ENV_TYPE=hmg
+html: --format html --out=log/report.html
+json: --format json --out=log/report.json
+firefox: BROWSER=firefox
+progress: --format progress
