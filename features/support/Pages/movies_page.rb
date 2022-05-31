@@ -1,60 +1,39 @@
 class MoviePage
-    include Capybara::DSL
+  include Capybara::DSL
 
+  def initialize
+    @movie_list_css = "table tbody tr"
+  end
 
-    def add
-        find(".movie-add").click
-    end
+  def form
+    MovieAdd.new
+  end
 
-    def upload(file)
-        cover_file = File.join(Dir.pwd, "features/support/fixtures/cover/" + file)
-        cover_file = cover_file.tr("/", "\\") if OS.windows?
-        
-        Capybara.ignore_hidden_elements = false
-        attach_file('upcover', cover_file)
-        Capybara.ignore_hidden_elements = true
-    end
+  def sweet_alert
+    SweetAlert.new
+  end
 
-    def add_cast(cast)
-        actor = find(".input-new-tag")
-        cast.each do |a|
-            actor.set a
-            actor.send_keys :tab
-        end
-    end
-    
-    def select_status(status)
-        find("input[placeholder=Status]").click
-        find(".el-select-dropdown__item", text: status).click
-    end
+  def add
+    find(".movie-add").click
+  end
 
+  def movie_tr(title)
+    find(@movie_list_css, text: title)
+  end
 
-    def alert
-        find(".alert").text
-    end
+  def remove(title)
+    visit "/"
+    find("#emailId").set "tony@stark.com"
+    find("#passId").set "123456"
+    find(".btn").click
+    movie_tr(title).find(".btn-trash").click
+  end
 
-    def create(movie)
-        find("input[name=title]").set movie["title"]
-        
-        #status
-        select_status(movie["status"]) unless movie["status"].empty?
+  def has_no_movie(title)
+    page.has_no_css?(@movie_list_css, text: title)
+  end
 
-        #date
-        find("input[name=year]").set movie["year"]
-        find("input[name=release_date]").set movie["release_date"]
-    
-        add_cast(movie["cast"])
-
-        find("textarea[name=overview]").set movie["overview"]
-        
-        upload(movie["cover"]) unless movie["cover"].empty?
-        
-        find("#create-movie").click
-    end
-
-    def movie_tr(movie)
-        find('table tbody tr', text: movie["title"])
-    end
-
-  
+  def has_movie(title)
+    page.has_css?(@movie_list_css, text: title)
+  end
 end

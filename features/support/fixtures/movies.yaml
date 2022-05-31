@@ -22,6 +22,14 @@ jocker:
   cast: ["Joaquin Phoenix"]
   overview: "O comediante falido Arthur Fleck encontra violentos bandidos pelas ruas de Gotham City."
   cover: "coringa.jpg"
+deadpool2:
+  title: "Deadpool 2"
+  status: "Disponível"
+  year: "2018"
+  release_date: "12/12/2018"
+  cast: ["Ryan Reynolds", "Josh Brolin"]
+  overview: "O super soldado Cable vem do futuro com a missão de detonar um jovem mutante e o Deadpool deve salvá-lo."
+  cover: "dp2.jpg"
 no_title:
   title: ""
   status: "Disponível"
@@ -54,3 +62,19 @@ no_date:
   cast: []
   overview: ""
   cover: ""
+witch:
+  title: "A Bruxa de Blair"
+  status: "Disponível"
+  year: "1999"
+  release_date: "12/02/1999"
+  cast: []
+  overview: ""
+  cover: "witch.jpg"
+down:
+  title: "Madrugada dos Mortos"
+  status: "Disponível"
+  year: "2004"
+  release_date: "12/02/2004"
+  cast: []
+  overview: ""
+  cover: "down.jpg"
